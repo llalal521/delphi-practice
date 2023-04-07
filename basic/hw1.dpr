@@ -10,16 +10,21 @@ uses
 
 var
     Result: Boolean;
-    Input: Integer;
+    Input, Left, Right: Integer;
 begin
+  Result := CheckGoldbachAll();
+  if Result then
+    write('2 - INTMAX proved' + #10);
   while True do
   begin
-    write('Input number to be judged(integer needed)' + #10);
+    write('Input number to be divided' + #10);
     read(Input);
+//    Result := CheckGoldbach(Input, Left, Right);
     Result := CheckPrime(Input);
     if Result then
       write('yes' + #10)
     else
-      write('no' + #10);
+      write(Input);
+      write(#10);
   end;
 end.
