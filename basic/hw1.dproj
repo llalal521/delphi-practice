@@ -45,6 +45,7 @@
 			</DelphiCompile>
 			<DCCReference Include="TablePrinter.pas"/>
 			<DCCReference Include="CheckPrimer.pas"/>
+			<DCCReference Include="Goldbach.pas"/>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>
 			</BuildConfiguration>

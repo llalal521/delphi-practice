@@ -1,6 +1,7 @@
 unit TablePrinter;
 
 interface
+  ///  <summary> ¥Ú”°æ≈æ≈≥À∑®±Ì </summary>
   procedure PrintTable();
 
 implementation
