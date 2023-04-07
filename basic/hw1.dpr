@@ -5,9 +5,10 @@ program hw1;
 uses
   SysUtils,
   TablePrinter in 'TablePrinter.pas',
-  CheckPrimer in 'CheckPrimer.pas';
+  CheckPrimer in 'CheckPrimer.pas',
+  Goldbach in 'Goldbach.pas';
 
-  var
+var
     Result: Boolean;
     Input: Integer;
 begin
