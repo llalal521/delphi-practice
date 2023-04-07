@@ -5,7 +5,7 @@ interface
   ///  <param name="Num"> 待拆分偶数 </param>
   ///  <returns name="Left"> 左质数 </returns>
   ///  <returns name="Right"> 右质数 </returns>
-  function CheckGoldbach(Num: Integer; Left: Integer; Right: Integer): Boolean;
+  function CheckGoldbach(Num: Integer; out Left: Integer; out Right: Integer): Boolean;
 
   ///  <summary> 判断从2-IntMax是否满足Goldbach </summary>
   function CheckGoldbachAll(): Boolean;
@@ -13,11 +13,12 @@ interface
 implementation
   uses
     CheckPrimer;
-  function CheckGoldbach(Num: Integer; Left: Integer; Right: Integer): Boolean;
+  function CheckGoldbach(Num: Integer; out Left: Integer; out Right: Integer): Boolean;
   var
     i, sub, mid, next: Integer;
   begin
     mid := Trunc(Num / 2);
+    i := 2;
     while i <= mid do
     begin
       if FindNextPrime(i, next) and CheckPrime(Num - i) then
