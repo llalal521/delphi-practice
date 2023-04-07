@@ -12,11 +12,11 @@ implementation
   begin
     Count := 9;
     for Right := 1 to Count do
-      begin
-        for Left := 1 to Right do
-          write(IntToStr(Left) + '*' + IntToStr(Right) + '=' + IntToStr(Left * Right) + #9);
-        write(#10);
-      end;
+    begin
+      for Left := 1 to Right do
+      write(IntToStr(Left) + '*' + IntToStr(Right) + '=' + IntToStr(Left * Right) + #9);
+      write(#10);
+    end;
     read(Left);
   end;
 end.
