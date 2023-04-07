@@ -15,29 +15,40 @@ interface
 implementation
   uses
     SysUtils;
-  ///  <summary> 函数通过判断2-sqrt(Num)间是否存在可以整除Num的数来判断素数</summary>
+  ///  <summary> 函数通过判断2-sqrt(Num)间是否存在可以整除Num的数来判断素数
+  ///  并且提前筛选掉可以被2或者3整除的数 </summary>
   function CheckPrime(Num: Integer): Boolean;
   var
-    SqrtNum, Count: Integer;
+    SqrtNum, Count, Divisor: Integer;
   begin
     if Num <= 3 then
       exit(Num > 1);
+    if (Num mod 2 = 0) or (Num mod 3 = 0) then
+      exit(False);
     SqrtNum := Trunc(Sqrt(Num));
-    for Count := 2 to SqrtNum do
+    Divisor := 5;
+    while Divisor <= SqrtNum do
     begin
-      if Num mod Count = 0 then
+      if Num mod Divisor = 0 then
         exit(False);
+      if Num mod (Divisor + 2) = 0 then
+        exit(False);
+      Divisor := Divisor + 6;
     end;
     exit(True);
   end;
 
-  ///  <summary> 调用前面的函数</summary>
+  ///  <summary> 调用前面的函数 </summary>
   function FindNextPrime(Num: Integer; out Next: Integer): Boolean;
   var
     res: Boolean;
   begin
     res := CheckPrime(Num);
-    if res then exit(True);
+    if res then
+    begin
+      Next := Num;
+      exit(True);
+    end;
     while res = false do
     begin
       Num := Num + 1;
